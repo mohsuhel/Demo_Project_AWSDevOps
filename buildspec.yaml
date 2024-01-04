@@ -1,0 +1,18 @@
+version: 0.2
+
+phases:
+  install:
+    commands:
+      - sudo apt-get update
+      - sudo apt-get install -y nginx
+  build:
+    commands:
+      - echo "Executing pre-build commands..."
+      - cp index.html /var/www/html
+  post_build:
+    commands:
+      - echo "Configuing NGINX"
+
+artifacts:
+  files: 
+    - /var/www/html/index.html
